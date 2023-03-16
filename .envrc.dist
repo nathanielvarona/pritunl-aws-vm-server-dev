@@ -1,0 +1,12 @@
+export AWS_PROFILE=""
+
+export MONGODB_ATLAS_PUBLIC_KEY=""
+export MONGODB_ATLAS_PRIVATE_KEY=""
+
+export TF_VAR_atlas_org_id=""
+export TF_VAR_pritunl_database=""
+export TF_VAR_atlas_dbuser=""
+export TF_VAR_atlas_dbpassword=""
+
+export TF_VAR_current_ip_address="$(curl -s ifconfig.me/ip)"
+export TF_VAR_key_pair_public_key=""

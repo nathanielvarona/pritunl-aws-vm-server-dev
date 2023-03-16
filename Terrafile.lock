@@ -1,0 +1,13 @@
+---
+ec2-instance:
+  source: terraform-aws-modules/ec2-instance/aws
+  version: 4.3.0
+  type: registry
+  url: https://github.com/terraform-aws-modules/terraform-aws-ec2-instance
+  sha: f612ec14f996a378909dd2cd461118c1d272cf70
+security-group:
+  source: terraform-aws-modules/security-group/aws
+  version: 4.17.1
+  type: registry
+  url: https://github.com/terraform-aws-modules/terraform-aws-security-group
+  sha: b79bcb04decbe89fe8f5279522cf778a92ccd563
