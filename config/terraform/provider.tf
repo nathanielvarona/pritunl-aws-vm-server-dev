@@ -9,3 +9,7 @@ provider "aws" {
 provider "mongodbatlas" {
 
 }
+
+provider "cloudflare" {
+
+}

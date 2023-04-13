@@ -9,13 +9,17 @@ terraform {
     encrypt        = true
     dynamodb_table = "terraform_locks"
   }
-}
 
-terraform {
   required_providers {
     mongodbatlas = {
       source = "mongodb/mongodbatlas"
       version = "1.8.1"
     }
+
+    cloudflare = {
+      source = "cloudflare/cloudflare"
+      version = "4.3.0"
+    }
+
   }
 }
