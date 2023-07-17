@@ -2,13 +2,27 @@
 
 ### Prepare the Environment
 
+Create a copy and fill in the required environment variables fields
+
 ```bash
-rbenv gemset create 3.1.2 pritunl-aws-vm-single-server
+cp ./.envrc.dist ./.envrc
+```
+
+Load the environment variables in your current working shell
+
+```bash
+set -a && source ./.envrc && set +a
 ```
 
 ### Install Terraspace *(a Terraform Framework)* Requirements
 
-Install the required gemset for Terraspace Framework
+Create a Ruby Environment (Gemset)
+
+```bash
+rbenv gemset create 3.1.2 pritunl-aws-vm-single-server
+```
+
+Install the required Gemset for Terraspace Framework
 
 ```bash
 bundle install
@@ -66,7 +80,7 @@ ansible-inventory -i aws_ec2.yml --graph
 ```
 
 ```bash
-ansible tag_Name_pritunl_node -i aws_ec2.yml -m ping
+ansible tag_Name_pritunl_vm -i aws_ec2.yml -m ping
 ```
 
 ### Basic Usage
