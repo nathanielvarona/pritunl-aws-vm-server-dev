@@ -1,17 +1,99 @@
-# Terraspace Project
+## Provision Initial VM using Terraform
 
-This is a Terraspace project. It contains code to provision Cloud infrastructure built with [Terraform](https://www.terraform.io/) and the [Terraspace Framework](https://terraspace.cloud/).
+### Prepare the Environment
 
-## Deploy
+```bash
+rbenv gemset create 3.1.2 pritunl-aws-vm-single-server
+```
 
-To deploy all the infrastructure stacks:
+### Install Terraspace *(a Terraform Framework)* Requirements
 
-    terraspace all up
+Install the required gemset for Terraspace Framework
 
-To deploy individual stacks:
+```bash
+bundle install
+```
 
-    terraspace up demo # where demo is app/stacks/demo
+Install Terraform Vendor Modules from Terraform Registry
 
-## Terrafile
+```bash
+terraspace bundle
+```
 
-To use more modules, add them to the [Terrafile](https://terraspace.cloud/docs/terrafile/).
+### Provision the VM
+
+Plan and Provision a VM
+
+```bash
+terraspace all plan
+terraspace all up
+```
+
+Monitor the Operations by outputting the logs
+
+```bash
+terraspace logs -f
+```
+
+
+## Provision Existing VM using Ansible
+
+### Ansible Provisioning Requirements
+
+Prepare the Environment
+```bash
+cd ./provisioning
+python -m venv ./.venv
+source ./.venv/bin/activate
+```
+
+Ansible Base (Core Distribution)
+```bash
+pip install -r requirements.txt
+```
+
+
+AWS Plugin
+```bash
+ansible-galaxy collection install amazon.aws
+```
+
+### AWS Compute Resource Inventory Checks
+
+Show AWS EC2 Resource
+```
+ansible-inventory -i aws_ec2.yml --graph
+```
+
+```bash
+ansible tag_Name_pritunl_node -i aws_ec2.yml -m ping
+```
+
+### Basic Usage
+
+Check for Possible Changes _(Dry Run)_
+```bash
+ansible-playbook -i aws_ec2.yml main.yml --check
+```
+
+Install the Updates _(Approve for any changes)_
+```bash
+ansible-playbook -i aws_ec2.yml main.yml
+```
+
+### Advance Usage
+
+Only for APT Check/Changes
+```bash
+ansible-playbook -i aws_ec2.yml main.yml --tags "apt" --check
+```
+
+Only for SystemD Check/Changes
+```bash
+ansible-playbook -i aws_ec2.yml main.yml --tags "systemd" --check
+```
+
+## TODO
+
+* Create a Packer Images for Initial VM Provisioning
+ 

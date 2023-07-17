@@ -1,0 +1,4 @@
+- name: Restart Pritunl Service
+  ansible.builtin.systemd:
+    state: restarted
+    name: pritunl.service

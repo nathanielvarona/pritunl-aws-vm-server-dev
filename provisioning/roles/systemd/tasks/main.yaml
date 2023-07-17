@@ -1,0 +1,4 @@
+- include: status.yaml
+  check_mode: no
+
+- include: restart.yaml

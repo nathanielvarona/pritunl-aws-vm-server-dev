@@ -40,3 +40,4 @@ terraform.tfvars
 /vendor
 .local
 .vscode
+.venv

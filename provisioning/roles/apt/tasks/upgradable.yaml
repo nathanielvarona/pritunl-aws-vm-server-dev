@@ -1,0 +1,6 @@
+---
+- name: List APT Upgradable
+  command: apt list --upgradable
+  register: upgradable
+
+- debug: var=upgradable.stdout_lines

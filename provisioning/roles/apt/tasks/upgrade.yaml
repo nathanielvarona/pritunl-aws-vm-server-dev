@@ -1,0 +1,7 @@
+---
+- name: System distribution upgrade
+  apt:
+    upgrade: dist
+  register: upgrade
+
+- debug: var=upgrade.stdout_lines

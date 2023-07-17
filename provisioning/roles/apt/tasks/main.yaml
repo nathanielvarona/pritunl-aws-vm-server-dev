@@ -1,0 +1,7 @@
+- include: update.yaml
+  check_mode: no
+
+- include: upgradable.yaml
+  check_mode: no
+
+- include: upgrade.yaml

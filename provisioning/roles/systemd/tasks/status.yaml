@@ -1,0 +1,6 @@
+---
+- name: Show Pritunl Status
+  command: systemctl status pritunl.service
+  register: status
+
+- debug: var=status.stdout_lines
