@@ -127,7 +127,9 @@ data "template_file" "pritunl_app" {
 module "ec2_instance" {
   source = "../../modules/ec2-instance"
 
-  name = local.name
+  for_each = toset(["1", "2"])
+
+  name = "${local.name}-${each.key}"
 
   # ami                    = data.aws_ami.ubuntu.id
   ami                    = "ami-0557a15b87f6559cf"
@@ -149,5 +151,6 @@ module "ec2_instance" {
   tags = {
     Terraform   = "true"
     Environment = "dev"
+    Host        = "${local.name}"
   }
 }

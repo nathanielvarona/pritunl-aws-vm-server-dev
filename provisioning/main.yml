@@ -1,6 +1,6 @@
 ---
 - name: Install Updates
-  hosts: tag_Name_pritunl_vm
+  hosts: tag_Host_pritunl_vm
   gather_facts: yes
   roles:
     - role: apt
@@ -10,7 +10,7 @@
 
 
 - name: Install Updates
-  hosts: tag_Name_pritunl_vm
+  hosts: tag_Host_pritunl_vm
   gather_facts: yes
   roles:
     - role: systemd

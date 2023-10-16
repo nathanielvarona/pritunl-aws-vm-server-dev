@@ -19,5 +19,7 @@ output "security_group_id" {
 }
 
 output "ip_address" {
-  value = module.ec2_instance.public_ip
+  value = {
+    for k, v in module.ec2_instance : k => v.public_ip
+  }
 }
